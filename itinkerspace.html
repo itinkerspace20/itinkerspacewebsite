@@ -1,0 +1,830 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#0B132B" />
+		<meta name="description" content="iTinker Space offers hands-on STEM, Robotics, AI, Coding and innovation programs for students, schools and educators." />
+		<title>iTinker Space | STEM, Robotics, AI & Coding</title>
+
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<!-- Google Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+				<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+					<!-- Icons -->
+					<script src="https://unpkg.com/lucide@latest"></script>
+
+					<script>
+						tailwind.config = {
+						theme: {
+						extend: {
+						fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+						colors: {
+						brand: {
+						navy: '#0B132B',
+						slate: '#1C2541',
+						orange: '#FF6B00',
+						orangeHover: '#E05A00',
+						blue: '#2563EB',
+						light: '#F8FAFC'
+						}
+						},
+						boxShadow: {
+						glow: '0 20px 70px rgba(255,107,0,.18)'
+						}
+						}
+						}
+						}
+					</script>
+					<style>
+						:root { color-scheme: light; }
+						html { scroll-padding-top: 90px; }
+						body { font-family: "Plus Jakarta Sans", sans-serif; }
+						.hero-grid {
+						background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+						linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+						background-size: 42px 42px;
+						mask-image: linear-gradient(to bottom, black, transparent 90%);
+						}
+						.gradient-text {
+						background: linear-gradient(90deg, #FF6B00, #FFC46B);
+						-webkit-background-clip: text; background-clip: text; color: transparent;
+						}
+						.float { animation: float 6s ease-in-out infinite; }
+						@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+						.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+						.reveal.visible { opacity: 1; transform: translateY(0); }
+						.orb { filter: blur(70px); }
+						.nav-link { position: relative; }
+						.nav-link::after { content:""; position:absolute; left:0; bottom:-8px; width:0; height:2px; background:#FF6B00; transition:width .25s; }
+						.nav-link:hover::after { width:100%; }
+						@media (prefers-reduced-motion: reduce) {
+						*, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+						}
+					</style>
+				</head>
+
+	<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white">
+		<!-- Navigation -->
+		<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+			<div class="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+				<a href="#home" class="flex items-center gap-2.5" aria-label="iTinker Space home">
+					<img src="images/itinkerspace.png"
+						 alt="iTinker Space Logo"
+						 class="h-12 w-auto object-contain">
+					</a>
+
+				<nav class="hidden items-center gap-7 text-[13px] font-bold text-slate-600 lg:flex" aria-label="Main navigation">
+					<a class="nav-link hover:text-brand-orange" href="#why-us">Why Us</a>
+					<a class="nav-link hover:text-brand-orange" href="#courses">Programs</a>
+					<a class="nav-link hover:text-brand-orange" href="#platform">Buy DIY Kits for Projects</a>
+					<a class="nav-link hover:text-brand-orange" href="#schools">For Institutions</a>
+					<a class="nav-link hover:text-brand-orange" href="#reviews">Stories</a>
+					<a class="nav-link hover:text-brand-orange" href="#contact">Contact</a>
+				</nav>
+
+				<div class="hidden items-center gap-3 md:flex">
+					<a href="#idea" class="rounded-full border-2 border-brand-navy px-4 py-2.5 text-xs font-extrabold text-brand-navy transition hover:bg-brand-navy hover:text-white">Submit an Idea</a>
+					<a href="#contact" class="rounded-full bg-brand-orange px-5 py-3 text-xs font-extrabold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-brand-orangeHover">
+						Book Free Demo <span aria-hidden="true">→</span>
+					</a>
+				</div>
+
+				<button id="menuBtn" class="rounded-xl p-2 text-brand-navy hover:bg-slate-100 lg:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+					<i data-lucide="menu" class="h-6 w-6"></i>
+				</button>
+			</div>
+			<div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-4 shadow-xl lg:hidden">
+				<nav class="flex flex-col gap-1 text-sm font-bold text-slate-700">
+					<a class="mobile-link rounded-lg px-3 py-3 hover:bg-orange-50 hover:text-brand-orange" href="#why-us">Why Us</a>
+					<a class="mobile-link rounded-lg px-3 py-3 hover:bg-orange-50 hover:text-brand-orange" href="#courses">Programs</a>
+					<a class="mobile-link rounded-lg px-3 py-3 hover:bg-orange-50 hover:text-brand-orange" href="#platform">iTinkerSpace Studio</a>
+					<a class="mobile-link rounded-lg px-3 py-3 hover:bg-orange-50 hover:text-brand-orange" href="#schools">For Schools</a>
+					<a class="mobile-link rounded-lg px-3 py-3 hover:bg-orange-50 hover:text-brand-orange" href="#reviews">Stories</a>
+					<a class="mobile-link rounded-lg px-3 py-3 hover:bg-orange-50 hover:text-brand-orange" href="#contact">Contact</a>
+					<div class="mt-3 grid grid-cols-2 gap-2">
+						<a href="#idea" class="rounded-full border-2 border-brand-navy px-3 py-3 text-center text-xs font-extrabold">Submit an Idea</a>
+						<a href="#contact" class="rounded-full bg-brand-orange px-3 py-3 text-center text-xs font-extrabold text-white">Free Demo</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<!-- Hero -->
+			<section id="home" class="relative isolate overflow-hidden bg-brand-navy text-white">
+				<div class="hero-grid absolute inset-0 -z-10"></div>
+				<div class="orb absolute -right-20 -top-24 -z-10 h-80 w-80 rounded-full bg-blue-600/30"></div>
+				<div class="orb absolute -bottom-40 left-1/4 -z-10 h-96 w-96 rounded-full bg-orange-500/20"></div>
+				<div class="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-12 lg:px-8 lg:py-24">
+					<div class="lg:col-span-7">
+						<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] font-extrabold tracking-[.18em] text-amber-300 sm:text-xs">
+							<span class="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span> LEARN <span class="text-white/40">•</span> BUILD <span class="text-white/40">•</span> LAUNCH
+						</div>
+						<h1 class="max-w-3xl text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-[62px]">
+							Turn Curiosity Into <span class="gradient-text">Real-World Tech.</span>
+						</h1>
+						<p class="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+							Hands-on STEM, Robotics, AI and Coding programs that help students move beyond screens and become confident creators, problem-solvers and young innovators.
+						</p>
+						<div class="mt-8 flex flex-col gap-3 sm:flex-row">
+							<a href="#courses" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-orange px-7 py-4 text-sm font-extrabold text-white shadow-glow transition hover:-translate-y-1 hover:bg-brand-orangeHover">
+								Explore Programs <i data-lucide="arrow-right" class="h-4 w-4"></i>
+							</a>
+							<a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-4 text-sm font-extrabold text-white transition hover:bg-white/20">
+								<i data-lucide="calendar-check" class="h-4 w-4"></i> Book a Free Demo
+							</a>
+						</div>
+						<div class="mt-12 grid grid-cols-2 gap-5 border-t border-white/10 pt-7 sm:grid-cols-4">
+							<div>
+								<p class="text-2xl font-extrabold text-white">2,000+</p>
+								<p class="mt-1 text-[11px] font-semibold text-slate-400">Projects Supported</p>
+							</div>
+							<div>
+								<p class="text-2xl font-extrabold text-amber-400">250+</p>
+								<p class="mt-1 text-[11px] font-semibold text-slate-400">Schools & Colleges</p>
+							</div>
+							<div>
+								<p class="text-2xl font-extrabold text-white">500+</p>
+								<p class="mt-1 text-[11px] font-semibold text-slate-400">Workshops</p>
+							</div>
+							<div>
+								<p class="text-2xl font-extrabold text-emerald-300">Hands-on</p>
+								<p class="mt-1 text-[11px] font-semibold text-slate-400">Learning Approach</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="relative lg:col-span-5">
+						<div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-brand-orange/30 to-blue-500/20 blur-2xl"></div>
+						<div class="relative overflow-hidden rounded-[2rem] border border-white/15 bg-brand-slate p-2 shadow-2xl">
+							<img class="h-[330px] w-full rounded-[1.5rem] object-cover sm:h-[410px]" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1100&q=85" alt="Students and educators working with technology and electronics" />
+							<div class="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/15 bg-brand-navy/90 p-4 shadow-xl backdrop-blur-md sm:p-5">
+								<div class="flex items-center justify-between gap-3">
+									<div>
+										<p class="text-[10px] font-extrabold uppercase tracking-widest text-amber-400">From imagination to invention</p>
+										<p class="mt-1 text-sm font-extrabold text-white sm:text-base">Think it. Tinker it. Make it.</p>
+									</div>
+									<span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-orange text-white">
+										<i data-lucide="bot" class="h-6 w-6"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="float absolute -left-7 top-12 hidden rounded-2xl border border-white/20 bg-white p-4 text-brand-navy shadow-xl sm:block">
+							<div class="flex items-center gap-2">
+								<span class="text-xl">🤖</span>
+								<div>
+									<p class="text-xs font-extrabold">Build & Code</p>
+									<p class="text-[10px] text-slate-500">Learn by doing</p>
+								</div>
+							</div>
+						</div>
+						<div class="float absolute -right-5 top-1/2 hidden rounded-2xl border border-white/20 bg-white p-4 text-brand-navy shadow-xl sm:block" style="animation-delay:-2s">
+							<div class="flex items-center gap-2">
+								<span class="text-xl">💡</span>
+								<div>
+									<p class="text-xs font-extrabold">Create Ideas</p>
+									<p class="text-[10px] text-slate-500">Solve real problems</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Why us -->
+			<section id="why-us" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+				<div class="mx-auto mb-14 max-w-3xl text-center reveal">
+					<p class="text-xs font-extrabold uppercase tracking-[.2em] text-brand-orange">WHY iTINKER SPACE</p>
+					<h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+						We Don’t Just Teach Tech.<br class="hidden sm:block">
+							<span class="text-brand-orange">We Build Builders.</span>
+					</h2>
+					<p class="mt-5 text-base leading-7 text-slate-600">Learning becomes meaningful when students imagine, design, build, test and improve something of their own.</p>
+				</div>
+				<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+					<article class="reveal rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+						<span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-brand-orange">
+							<i data-lucide="wrench" class="h-6 w-6"></i>
+						</span>
+						<h3 class="text-lg font-extrabold text-brand-navy">100% Project-Based</h3>
+						<p class="mt-3 text-sm leading-7 text-slate-600">Students work with real components, sensors, tools and code to turn concepts into working prototypes.</p>
+					</article>
+					<article class="reveal rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+						<span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600">
+							<i data-lucide="cpu" class="h-6 w-6"></i>
+						</span>
+						<h3 class="text-lg font-extrabold text-brand-navy">Future-Ready Skills</h3>
+						<p class="mt-3 text-sm leading-7 text-slate-600">Explore Robotics, Arduino, Python, IoT, AI, app development, 3D design and creative problem-solving.</p>
+					</article>
+					<article class="reveal rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+						<span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600">
+							<i data-lucide="users" class="h-6 w-6"></i>
+						</span>
+						<h3 class="text-lg font-extrabold text-brand-navy">Mentor-Led Learning</h3>
+						<p class="mt-3 text-sm leading-7 text-slate-600">Guidance, demonstrations and step-by-step support help learners build confidence at every stage.</p>
+					</article>
+					<article class="reveal rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+						<span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-100 text-violet-600">
+							<i data-lucide="lightbulb" class="h-6 w-6"></i>
+						</span>
+						<h3 class="text-lg font-extrabold text-brand-navy">Innovation Mindset</h3>
+						<p class="mt-3 text-sm leading-7 text-slate-600">Students learn to identify everyday challenges and develop practical, creative solutions.</p>
+					</article>
+					<article class="reveal rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+						<span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-600">
+							<i data-lucide="package-check" class="h-6 w-6"></i>
+						</span>
+						<h3 class="text-lg font-extrabold text-brand-navy">Learning Kits</h3>
+						<p class="mt-3 text-sm leading-7 text-slate-600">Structured kit options help learners practise concepts through guided activities and take-home projects.</p>
+					</article>
+					<article class="reveal rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+						<span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-rose-600">
+							<i data-lucide="trophy" class="h-6 w-6"></i>
+						</span>
+						<h3 class="text-lg font-extrabold text-brand-navy">Showcase & Grow</h3>
+						<p class="mt-3 text-sm leading-7 text-slate-600">Learners can document projects, present ideas and prepare for exhibitions, competitions and showcases.</p>
+					</article>
+				</div>
+			</section>
+
+			<!-- Programs -->
+			<section id="courses" class="bg-white py-20">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+					<div class="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end reveal">
+						<div class="max-w-2xl">
+							<p class="text-xs font-extrabold uppercase tracking-[.2em] text-brand-orange">LEARNING PATHWAYS</p>
+							<h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+								Choose a Program.<br>
+									<span class="text-brand-orange">Start Creating.</span>
+							</h2>
+							<p class="mt-4 text-slate-600">Age-appropriate learning experiences for curious beginners and ambitious young innovators.</p>
+						</div>
+						<a href="#contact" class="inline-flex items-center gap-2 text-sm font-extrabold text-brand-orange hover:text-brand-orangeHover">
+							Talk to a Program Advisor <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+						</a>
+					</div>
+					<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+						<article class="reveal group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:shadow-xl">
+							<img src="images/itinker6.jpg" alt="Colourful creative building blocks" class="h-48 w-full object-cover transition duration-500 group-hover:scale-105">
+								<div class="p-6">
+									<span class="rounded-full bg-orange-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-orange-700">Level 1</span>
+									<h3 class="mt-4 text-xl font-extrabold text-brand-navy">Creative STEM & Making</h3>
+									<p class="mt-3 text-sm leading-7 text-slate-600">Explore patterns, design thinking, simple machines, building blocks, Scratch basics and fun hands-on challenges.</p>
+									<ul class="mt-4 space-y-2 text-xs font-semibold text-slate-600">
+										<li>✓ Creative construction</li>
+										<li>✓ Beginner coding concepts</li>
+										<li>✓ Mini maker challenges</li>
+									</ul>
+									<a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-brand-orange">
+										Enquire now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+									</a>
+								</div>
+							</article>
+						<article class="reveal group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:shadow-xl">
+							<img src="images/itinker2.jpg" alt="Student learning electronics and robotics" class="h-48 w-full object-cover transition duration-500 group-hover:scale-105">
+								<div class="p-6">
+									<span class="rounded-full bg-blue-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-blue-700">Level 2</span>
+									<h3 class="mt-4 text-xl font-extrabold text-brand-navy">Robotics & Electronics</h3>
+									<p class="mt-3 text-sm leading-7 text-slate-600">Understand circuits, sensors, Arduino, robotics logic and interactive systems through guided projects.</p>
+									<ul class="mt-4 space-y-2 text-xs font-semibold text-slate-600">
+										<li>✓ Basic electronics & circuits</li>
+										<li>✓ Arduino and sensors</li>
+										<li>✓ Robot design & coding</li>
+									</ul>
+									<a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-brand-orange">
+										Enquire now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+									</a>
+								</div>
+							</article>
+						<article class="reveal group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:shadow-xl">
+							<img src="images/itinker5.jpg" alt="Students collaborating on a technology project" class="h-48 w-full object-cover transition duration-500 group-hover:scale-105">
+								<div class="p-6">
+									<span class="rounded-full bg-violet-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-violet-700">Level 3</span>
+									<h3 class="mt-4 text-xl font-extrabold text-brand-navy">AI, IoT & App Development</h3>
+									<p class="mt-3 text-sm leading-7 text-slate-600">Build connected devices and intelligent applications while learning practical engineering workflows.</p>
+									<ul class="mt-4 space-y-2 text-xs font-semibold text-slate-600">
+										<li>✓ Python and AI foundations</li>
+										<li>✓ IoT and wireless systems</li>
+										<li>✓ Mobile app projects</li>
+									</ul>
+									<a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-brand-orange">
+										Enquire now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+									</a>
+								</div>
+							</article>
+						<article class="reveal group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:shadow-xl">
+							<video
+						    class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+							autoplay=""
+							muted=""
+							loop=""
+							playsinline=""
+							>
+							<source src="videos/itinker.mp4" type="video/mp4">
+							</video>
+								<div class="p-6">
+									<span class="rounded-full bg-emerald-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-700">All levels</span>
+									<h3 class="mt-4 text-xl font-extrabold text-brand-navy">Coding & App Creation</h3>
+									<p class="mt-3 text-sm leading-7 text-slate-600">Develop computational thinking through block coding, Python fundamentals and app-building activities.</p>
+									<ul class="mt-4 space-y-2 text-xs font-semibold text-slate-600">
+										<li>✓ Scratch and visual coding</li>
+										<li>✓ Python fundamentals</li>
+										<li>✓ App design and logic</li>
+									</ul>
+									<a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-brand-orange">
+										Enquire now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+									</a>
+								</div>
+							</article>
+						<article class="reveal group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:shadow-xl">
+							<img src="images/itinker3.jpg" alt="Engineering prototype and electronics workbench" class="h-48 w-full object-cover transition duration-500 group-hover:scale-105">
+								<div class="p-6">
+									<span class="rounded-full bg-amber-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-800">College & beyond</span>
+									<h3 class="mt-4 text-xl font-extrabold text-brand-navy">Engineering Projects</h3>
+									<p class="mt-3 text-sm leading-7 text-slate-600">Practical project mentoring in Embedded Systems, IoT, VLSI foundations, AI/ML and prototyping.</p>
+									<ul class="mt-4 space-y-2 text-xs font-semibold text-slate-600">
+										<li>✓ Mini & major projects</li>
+										<li>✓ Embedded systems</li>
+										<li>✓ Prototype development</li>
+									</ul>
+									<a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-brand-orange">
+										Enquire now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+									</a
+									
+								</div>
+							</article>
+						<article class="reveal group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:shadow-xl">
+							<img src="images/itinker8.jpg" alt="Teachers collaborating in a training session" class="h-48 w-full object-cover transition duration-500 group-hover:scale-105">
+								<div class="p-6">
+									<span class="rounded-full bg-rose-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-rose-700">Educators</span>
+									<h3 class="mt-4 text-xl font-extrabold text-brand-navy">Teacher Training</h3>
+									<p class="mt-3 text-sm leading-7 text-slate-600">Practical STEM and robotics training that helps teachers confidently conduct classroom activities and project sessions.</p>
+									<ul class="mt-4 space-y-2 text-xs font-semibold text-slate-600">
+										<li>✓ Hands-on electronics</li>
+										<li>✓ Classroom-ready activities</li>
+										<li>✓ Project facilitation skills</li>
+									</ul>
+									<a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-brand-orange">
+										Enquire now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+									</a>
+								</div>
+							</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- How it works -->
+			<section class="bg-brand-navy py-20 text-white">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+					<div class="mx-auto mb-14 max-w-2xl text-center reveal">
+						<p class="text-xs font-extrabold uppercase tracking-[.2em] text-amber-400">THE iTINKER METHOD</p>
+						<h2 class="mt-3 text-3xl font-extrabold sm:text-4xl">
+							A Simple Journey From <span class="gradient-text">Idea to Impact.</span>
+						</h2>
+						<p class="mt-4 text-sm leading-7 text-slate-300">A practical learning cycle that encourages curiosity, experimentation and improvement.</p>
+					</div>
+					<div class="grid gap-8 md:grid-cols-4">
+						<div class="reveal text-center">
+							<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-2xl font-extrabold text-amber-400">01</div>
+							<h3 class="mt-5 font-extrabold">Imagine</h3>
+							<p class="mt-2 text-sm leading-6 text-slate-400">Ask questions, explore challenges and develop ideas.</p>
+						</div>
+						<div class="reveal text-center">
+							<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-2xl font-extrabold text-amber-400">02</div>
+							<h3 class="mt-5 font-extrabold">Design</h3>
+							<p class="mt-2 text-sm leading-6 text-slate-400">Plan the solution, select components and map the logic.</p>
+						</div>
+						<div class="reveal text-center">
+							<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-2xl font-extrabold text-amber-400">03</div>
+							<h3 class="mt-5 font-extrabold">Build</h3>
+							<p class="mt-2 text-sm leading-6 text-slate-400">Create, code, connect and test a working prototype.</p>
+						</div>
+						<div class="reveal text-center">
+							<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-2xl font-extrabold text-amber-400">04</div>
+							<h3 class="mt-5 font-extrabold">Improve</h3>
+							<p class="mt-2 text-sm leading-6 text-slate-400">Present the outcome, learn from feedback and iterate.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Platform -->
+			<section id="platform" class="overflow-hidden py-20">
+				<div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+					<div class="reveal relative">
+						<div class="absolute -inset-5 rounded-[2rem] bg-blue-200/50 blur-2xl"></div>
+						<div class="relative rounded-[2rem] bg-gradient-to-br from-slate-900 to-blue-950 p-6 shadow-2xl sm:p-8">
+							<div class="flex items-center justify-between border-b border-white/10 pb-5">
+								<div class="flex items-center gap-2">
+									<span class="h-3 w-3 rounded-full bg-rose-400"></span>
+									<span class="h-3 w-3 rounded-full bg-amber-400"></span>
+									<span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+								</div>
+								<span class="text-xs font-bold text-slate-400">iTinkerSpace Studio</span>
+							</div>
+							<div class="mt-7 grid grid-cols-2 gap-3">
+								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+									<i data-lucide="code-2" class="h-6 w-6 text-amber-400"></i>
+									<p class="mt-4 text-sm font-extrabold text-white">Python Lab</p>
+									<p class="mt-1 text-xs text-slate-400">Learn by coding</p>
+								</div>
+								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+									<i data-lucide="bot" class="h-6 w-6 text-cyan-300"></i>
+									<p class="mt-4 text-sm font-extrabold text-white">Robotics Lab</p>
+									<p class="mt-1 text-xs text-slate-400">Think and build</p>
+								</div>
+								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+									<i data-lucide="brain-circuit" class="h-6 w-6 text-violet-300"></i>
+									<p class="mt-4 text-sm font-extrabold text-white">AI Playground</p>
+									<p class="mt-1 text-xs text-slate-400">Explore intelligence</p>
+								</div>
+								<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+									<i data-lucide="blocks" class="h-6 w-6 text-emerald-300"></i>
+									<p class="mt-4 text-sm font-extrabold text-white">Project Zone</p>
+									<p class="mt-1 text-xs text-slate-400">Create prototypes</p>
+								</div>
+							</div>
+							<div class="mt-5 rounded-2xl border border-brand-orange/30 bg-brand-orange/10 p-4">
+								<p class="text-xs font-bold text-amber-300">YOUR NEXT BIG IDEA STARTS HERE</p>
+								<div class="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+									<div class="h-full w-3/4 rounded-full bg-gradient-to-r from-brand-orange to-amber-300"></div>
+								</div>
+								<p class="mt-2 text-right text-[10px] text-slate-400">Imagine • Create • Share</p>
+							</div>
+						</div>
+					</div>
+					<div class="reveal">
+						<p class="text-xs font-extrabold uppercase tracking-[.2em] text-brand-orange">DIGITAL LEARNING EXPERIENCE</p>
+						<h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+							<span class="text-brand-orange">Buy DIY Kits for Projects
+						</h2>
+						<p class="mt-5 leading-8 text-slate-600">A concept space for guided digital exploration—bringing coding, robotics logic, AI activities and project learning together in one student-friendly experience.</p>
+						<div class="mt-7 space-y-4">
+							<div class="flex gap-3">
+								<span class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+									<i data-lucide="check" class="h-4 w-4"></i>
+								</span>
+								<div>
+									<p class="font-extrabold text-brand-navy">Learn through challenges</p>
+									<p class="mt-1 text-sm text-slate-500">Build confidence through small, achievable activities.</p>
+								</div>
+							</div>
+							<div class="flex gap-3">
+								<span class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+									<i data-lucide="check" class="h-4 w-4"></i>
+								</span>
+								<div>
+									<p class="font-extrabold text-brand-navy">Connect code with hardware</p>
+									<p class="mt-1 text-sm text-slate-500">Understand how software can interact with the real world.</p>
+								</div>
+							</div>
+							<div class="flex gap-3">
+								<span class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+									<i data-lucide="check" class="h-4 w-4"></i>
+								</span>
+								<div>
+									<p class="font-extrabold text-brand-navy">Showcase student creativity</p>
+									<p class="mt-1 text-sm text-slate-500">Turn learning outcomes into projects worth presenting.</p>
+								</div>
+							</div>
+						</div>
+						<a href="#contact" class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-navy px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-brand-slate">
+							Ask about iTinkerSpace <i data-lucide="arrow-right" class="h-4 w-4"></i>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Schools and B2B -->
+			<section id="schools" class="bg-orange-50/70 py-20">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+					<div class="mx-auto mb-12 max-w-3xl text-center reveal">
+						<p class="text-xs font-extrabold uppercase tracking-[.2em] text-brand-orange">SCHOOL & INSTITUTION PARTNERSHIPS</p>
+						<h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+							Build an Innovation Culture <span class="text-brand-orange">on Campus.</span>
+						</h2>
+						<p class="mt-4 leading-7 text-slate-600">Practical STEM and Robotics programs designed to support schools, colleges, educators and student innovation teams.</p>
+					</div>
+					<div class="grid gap-5 md:grid-cols-3">
+						<div class="reveal rounded-3xl border border-orange-100 bg-white p-7">
+							<i data-lucide="school" class="h-8 w-8 text-brand-orange"></i>
+							<h3 class="mt-5 text-lg font-extrabold text-brand-navy">School Programs</h3>
+							<p class="mt-3 text-sm leading-7 text-slate-600">Curriculum-aligned activity plans, robotics sessions, maker activities and student project mentoring.</p>
+						</div>
+						<div class="reveal rounded-3xl border border-orange-100 bg-white p-7">
+							<i data-lucide="graduation-cap" class="h-8 w-8 text-brand-orange"></i>
+							<h3 class="mt-5 text-lg font-extrabold text-brand-navy">College & Engineering</h3>
+							<p class="mt-3 text-sm leading-7 text-slate-600">Embedded, IoT, AI/ML and prototyping workshops, internships and mini/major project guidance.</p>
+						</div>
+						<div class="reveal rounded-3xl border border-orange-100 bg-white p-7">
+							<i data-lucide="presentation" class="h-8 w-8 text-brand-orange"></i>
+							<h3 class="mt-5 text-lg font-extrabold text-brand-navy">Educator Enablement</h3>
+							<p class="mt-3 text-sm leading-7 text-slate-600">Hands-on teacher training, ready-to-use classroom activities and support for exhibitions and competitions.</p>
+						</div>
+					</div>
+					<div class="reveal mt-8 flex flex-col items-start justify-between gap-5 rounded-3xl bg-brand-navy p-7 text-white sm:p-9 lg:flex-row lg:items-center">
+						<div>
+							<p class="text-xs font-extrabold uppercase tracking-widest text-amber-400">LET’S COLLABORATE</p>
+							<h3 class="mt-2 text-2xl font-extrabold">Bring practical technology learning to your institution.</h3>
+							<p class="mt-2 text-sm text-slate-300">Tell us about your students, goals and campus requirements.</p>
+						</div>
+						<a href="#contact" class="shrink-0 rounded-full bg-brand-orange px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-brand-orangeHover">
+							Discuss a Partnership <i data-lucide="arrow-up-right" class="ml-1 inline h-4 w-4"></i>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Gallery -->
+			<section class="bg-white py-20">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+					<div class="mb-10 text-center reveal">
+						<p class="text-xs font-extrabold uppercase tracking-[.2em] text-brand-orange">THE MAKER EXPERIENCE</p>
+						<h2 class="mt-3 text-3xl font-extrabold text-brand-navy sm:text-4xl">Ideas Come to Life Here.</h2>
+						<p class="mt-4 text-slate-600">A glimpse into the world of making, experimenting and learning together.</p>
+					</div>
+					<div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+						<img class="reveal h-44 w-full rounded-2xl object-cover sm:h-60" src="images/itinker1.jpg" alt="Hands-on electronics learning">
+							<img class="reveal h-44 w-full rounded-2xl object-cover sm:h-60" src="images/itinker3.jpg" alt="Engineering and technology workspace">
+								<img class="reveal h-44 w-full rounded-2xl object-cover sm:h-60" src="images/itinker2.jpg" alt="Collaborative student learning">
+									<img class="reveal h-44 w-full rounded-2xl object-cover sm:h-60" src="images/itinker4.jpg" alt="Coding and digital learning">
+        </div>
+				</div>
+			</section>
+
+			<!-- Reviews / testimonials -->
+			<section id="reviews" class="bg-slate-100 py-20">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+					<div class="mx-auto mb-12 max-w-2xl text-center reveal">
+						<p class="text-xs font-extrabold uppercase tracking-[.2em] text-brand-orange">LEARNING THAT INSPIRES</p>
+						<h2 class="mt-3 text-3xl font-extrabold text-brand-navy sm:text-4xl">Every Young Creator Has a Story.</h2>
+						<p class="mt-4 text-sm leading-7 text-slate-600">Celebrate curiosity, effort and the confidence that comes from building something independently.</p>
+					</div>
+					<div class="grid gap-5 md:grid-cols-3">
+						<article class="reveal rounded-3xl border border-slate-200 bg-white p-7">
+								<div class="text-lg tracking-widest text-amber-400">★★★★★</div>
+							<p class="mt-4 text-sm leading-7 text-slate-600">“The best part of project learning is seeing students ask questions, test their ideas and proudly explain what they have built.”</p>
+							<div class="mt-6 border-t border-slate-100 pt-4">
+								<p class="font-extrabold text-brand-navy">A Parent’s Perspective</p>
+								<p class="mt-1 text-xs text-slate-400">Illustrative sample testimonial</p>
+							</div>
+						</article>
+						<article class="reveal rounded-3xl border border-slate-200 bg-white p-7">
+							<div class="text-lg tracking-widest text-amber-400">★★★★★</div>
+							<p class="mt-4 text-sm leading-7 text-slate-600">“Hands-on activities make technology easier to understand. Students get an opportunity to learn by doing.”</p>
+							<div class="mt-6 border-t border-slate-100 pt-4">
+								<p class="font-extrabold text-brand-navy">An Educator’s Perspective</p>
+								<p class="mt-1 text-xs text-slate-400">Illustrative sample testimonial</p>
+							</div>
+						</article>
+						<article class="reveal rounded-3xl border border-slate-200 bg-white p-7">
+							<div class="text-lg tracking-widest text-amber-400">★★★★★</div>
+							<p class="mt-4 text-sm leading-7 text-slate-600">“Building a working model helped me understand how coding and electronics connect in real life.”</p>
+							<div class="mt-6 border-t border-slate-100 pt-4">
+								<p class="font-extrabold text-brand-navy">A Student’s Perspective</p>
+								<p class="mt-1 text-xs text-slate-400">Illustrative sample testimonial</p>
+							</div>
+						</article>
+						<article class="reveal rounded-3xl border border-slate-200 bg-white p-7">
+							<div class="text-lg tracking-widest text-amber-400">★★★★★</div>
+							<p class="mt-4 text-sm leading-7 text-slate-600">“I am really happy with my child's learning journey. The trainer is very supportive and makes every session interactive. My child has developed more confidence, creativity and interest in technology.”</p>
+							<div class="mt-6 border-t border-slate-100 pt-4">
+								<p class="font-extrabold text-brand-navy">A Parent’s Perspective</p>
+								<p class="mt-1 text-xs text-slate-400">Illustrative sample testimonial</p>
+							</div>
+						</article>
+						<article class="reveal rounded-3xl border border-slate-200 bg-white p-7">
+							<div class="text-lg tracking-widest text-amber-400">★★★★</div>
+							<p class="mt-4 text-sm leading-7 text-slate-600">“The coding classes helped me improve my logical thinking and build my own creative projects.”</p>
+							<div class="mt-6 border-t border-slate-100 pt-4">
+								<p class="font-extrabold text-brand-navy">A Parent’s Perspective</p>
+								<p class="mt-1 text-xs text-slate-400">Illustrative sample testimonial</p>
+							</div>
+						</article>
+						<article class="reveal rounded-3xl border border-slate-200 bg-white p-7">
+							<div class="text-lg tracking-widest text-amber-400">★★★★★</div>
+							<p class="mt-4 text-sm leading-7 text-slate-600">“Learning through hands-on activities was so much fun! I enjoyed building projects, exploring new technologies and discovering something new every day.”</p>
+							<div class="mt-6 border-t border-slate-100 pt-4">
+								<p class="font-extrabold text-brand-navy">A Student's Perspective</p>
+								<p class="mt-1 text-xs text-slate-400">Illustrative sample testimonial</p>
+							</div>
+						</article>
+					</div>
+					<p class="mt-5 text-center text-[11px] text-slate-400">Note: Replace these sample testimonials with approved, genuine parent, teacher and student feedback before publishing.</p>
+				</div>
+			</section>
+
+			<!-- Submit idea -->
+			<section id="idea" class="py-20">
+				<div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+					<div class="reveal flex flex-col justify-center">
+						<p class="text-xs font-extrabold uppercase tracking-[.2em] text-brand-orange">HAVE AN IDEA?</p>
+						<h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-navy sm:text-4xl">
+							Big Ideas Start With <span class="text-brand-orange">One Question.</span>
+						</h2>
+						<p class="mt-5 leading-8 text-slate-600">Have an invention idea, a school challenge or a project concept? Share it with us. We’ll help you explore the next steps to turn your thought into a practical prototype.</p>
+						<div class="mt-7 flex items-center gap-3 text-sm font-bold text-brand-navy">
+							<span class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 text-brand-orange">
+								<i data-lucide="lightbulb" class="h-5 w-5"></i>
+							</span> Think beyond the textbook. Build beyond the ordinary.
+						</div>
+					</div>
+					<form id="ideaForm" class="reveal rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 sm:p-8">
+						<h3 class="text-xl font-extrabold text-brand-navy">Share Your Idea</h3>
+						<p class="mt-2 text-sm text-slate-500">Fill in the details and your email app will open with your message.</p>
+						<div class="mt-6 grid gap-4 sm:grid-cols-2">
+							<label class="text-xs font-bold text-slate-700">
+								Your Name<input required="" name="name" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-orange-100" placeholder="Enter your name">
+							</label>
+							<label class="text-xs font-bold text-slate-700">
+								Email Address<input required="" type="email" name="email" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-orange-100" placeholder="you@example.com">
+							</label>
+							<label class="text-xs font-bold text-slate-700 sm:col-span-2">
+								I am a...
+								<select name="role" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-orange">
+									<option>Student</option>
+									<option>Parent</option>
+									<option>Teacher</option>
+									<option>School / College Representative</option>
+									<option>Other</option>
+								</select>
+							</label>
+							<label class="text-xs font-bold text-slate-700 sm:col-span-2">
+								Tell us about your idea<textarea required="" name="idea" rows="4" class="mt-2 w-full resize-y rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-orange-100" placeholder="Describe your project or idea..."></textarea>
+							</label>
+						</div>
+						<button type="submit" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-orange px-6 py-4 text-sm font-extrabold text-white transition hover:bg-brand-orangeHover">
+							Send My Idea <i data-lucide="send" class="h-4 w-4"></i>
+						</button>
+						<p id="ideaStatus" class="mt-3 text-center text-xs text-slate-500" aria-live="polite">Your email application will be used to send the message.</p>
+					</form>
+				</div>
+			</section>
+
+			<!-- CTA / Contact -->
+			<section id="contact" class="bg-brand-navy py-20 text-white">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+					<div class="grid gap-12 lg:grid-cols-2">
+						<div class="reveal">
+							<p class="text-xs font-extrabold uppercase tracking-[.2em] text-amber-400">LET’S GET STARTED</p>
+							<h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl">
+								Ready to Build <span class="gradient-text">Something Amazing?</span>
+							</h2>
+							<p class="mt-5 max-w-xl leading-8 text-slate-300">Book a free introductory conversation or demo session. Tell us the learner’s age, interests and goals—we’ll help you find a suitable learning path.</p>
+							<div class="mt-8 space-y-4">
+								<a href="tel:+918019102233" class="flex items-center gap-4 text-sm font-bold text-white hover:text-amber-300">
+									<span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-amber-300">
+										<i data-lucide="phone" class="h-5 w-5"></i>
+									</span> +91 8019102233
+								</a>
+								<a href="mailto:itinkerspace20@gmail.com" class="flex items-center gap-4 text-sm font-bold text-white hover:text-amber-300">
+									<span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-amber-300">
+										<i data-lucide="mail" class="h-5 w-5"></i>
+									</span> itinkerspace20@gmail.com
+								</a>
+								<div class="flex items-center gap-4 text-sm font-bold text-white">
+									<span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-amber-300">
+										<i data-lucide="map-pin" class="h-5 w-5"></i>
+									</span> Hyderabad, Telangana, India
+								</div>
+							</div>
+						</div>
+						<form id="contactForm" class="reveal rounded-3xl bg-white p-6 text-slate-800 shadow-2xl sm:p-8">
+							<h3 class="text-xl font-extrabold text-brand-navy">Let's Connect..!</h3>
+							<p class="mt-2 text-sm text-slate-500">Share a few details and we’ll help you plan the next step.</p>
+							<div class="mt-6 space-y-4">
+								<label class="block text-xs font-bold text-slate-700">
+									Full Name<input required="" name="name" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-orange focus:ring-2 focus:ring-orange-100" placeholder="Your name">
+								</label>
+								<label class="block text-xs font-bold text-slate-700">
+									Phone Number<input required="" name="phone" type="tel" pattern="[0-9+\-\s()]{8,18}" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-orange focus:ring-2 focus:ring-orange-100" placeholder="+91">
+								</label>
+								<label class="block text-xs font-bold text-slate-700">
+									Interested In<select name="program" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-orange">
+										<option>STEM & Robotics</option>
+										<option>AI & Coding</option>
+										<option>IoT & Embedded Systems</option>
+										<option>Teacher Training</option>
+										<option>School / College Partnership</option>
+										<option>Engineering Projects</option>
+									</select>
+								</label>
+								<label class="block text-xs font-bold text-slate-700">
+									Message<textarea name="message" rows="3" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-orange" placeholder="Student age, grade or your requirements"></textarea>
+								</label>
+								<button type="submit" class="w-full rounded-full bg-brand-orange px-6 py-4 text-sm font-extrabold text-white transition hover:bg-brand-orangeHover">
+									Request a Call Back <i data-lucide="arrow-right" class="ml-1 inline h-4 w-4"></i>
+								</button>
+								<p class="text-center text-[11px] text-slate-400">Submitting opens WhatsApp with your enquiry ready to send.</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-[#070D1D] py-10 text-slate-400">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div class="flex flex-col justify-between gap-8 border-b border-white/10 pb-8 md:flex-row">
+					<div class="max-w-sm">
+						<a href="#home" class="inline-flex items-center gap-2 text-xl font-extrabold text-white">
+							💡 iTinker<span class="text-brand-orange">Space</span>
+						</a>
+						<p class="mt-4 text-sm leading-7">Learn by doing. Create with purpose. Inspire the next generation of innovators through practical STEM, Robotics, AI and Coding education.</p>
+					</div>
+					<div class="grid grid-cols-2 gap-10 text-sm">
+						<div>
+							<p class="font-extrabold text-white">Explore</p>
+							<div class="mt-4 space-y-3">
+								<a class="block hover:text-white" href="#why-us">Why Us</a>
+								<a class="block hover:text-white" href="#courses">Programs</a>
+								<a class="block hover:text-white" href="#platform">iTinkerSpace</a>
+							</div>
+						</div>
+						<div>
+							<p class="font-extrabold text-white">Connect</p>
+							<div class="mt-4 space-y-3">
+								<a class="block hover:text-white" href="#schools">For Schools</a>
+								<a class="block hover:text-white" href="#idea">Submit an Idea</a>
+								<a class="block hover:text-white" href="#contact">Contact</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-col justify-between gap-3 pt-6 text-xs sm:flex-row">
+					<p>
+						© <span id="year"></span> iTinker Space. All rights reserved.
+					</p>
+					<p>Powered by curiosity. Built for the future.</p>
+				</div>
+			</div>
+		</footer>
+
+		<a href="https://wa.me/918019102233?text=Hello%20iTinker%20Space%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs." target="_blank" rel="noopener noreferrer" aria-label="Chat with iTinker Space on WhatsApp" class="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 transition hover:scale-110">
+			<i data-lucide="message-circle" class="h-7 w-7"></i>
+		</a>
+
+		<script>
+			// Icons
+			if (window.lucide) lucide.createIcons();
+
+			// Mobile navigation
+			const menuBtn = document.getElementById('menuBtn');
+			const mobileMenu = document.getElementById('mobileMenu');
+			menuBtn.addEventListener('click', () => {
+			const isOpen = !mobileMenu.classList.contains('hidden');
+			mobileMenu.classList.toggle('hidden');
+			menuBtn.setAttribute('aria-expanded', String(!isOpen));
+			menuBtn.innerHTML = isOpen ? '<i data-lucide="menu" class="h-6 w-6"></i>' : '<i data-lucide="x" class="h-6 w-6"></i>';
+			if (window.lucide) lucide.createIcons();
+			});
+			document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+			mobileMenu.classList.add('hidden');
+			menuBtn.setAttribute('aria-expanded', 'false');
+			menuBtn.innerHTML = '<i data-lucide="menu" class="h-6 w-6"></i>';
+			if (window.lucide) lucide.createIcons();
+			}));
+
+			// Reveal animations
+			const revealObserver = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+			if (entry.isIntersecting) {
+			entry.target.classList.add('visible');
+			revealObserver.unobserve(entry.target);
+			}
+			});
+			}, { threshold: 0.12 });
+			document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+			// Current year
+			document.getElementById('year').textContent = new Date().getFullYear();
+
+			// Idea form: opens the visitor's email application with a prefilled message.
+			document.getElementById('ideaForm').addEventListener('submit', event => {
+			event.preventDefault();
+			const data = new FormData(event.currentTarget);
+			const subject = encodeURIComponent('New Idea Submission - iTinker Space');
+			const body = encodeURIComponent(
+			`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nRole: ${data.get('role')}\n\nIdea:\n${data.get('idea')}`
+			);
+			document.getElementById('ideaStatus').textContent = 'Opening your email application...';
+			window.location.href = `mailto:itinkerspace20@gmail.com?subject=${subject}&body=${body}`;
+			});
+
+			// Contact form: opens WhatsApp with the enquiry prefilled. Visitor presses Send in WhatsApp.
+			document.getElementById('contactForm').addEventListener('submit', event => {
+			event.preventDefault();
+			const data = new FormData(event.currentTarget);
+			const message = encodeURIComponent(
+			`Hello iTinker Space! I would like to request a free demo / call back.\n\nName: ${data.get('name')}\nPhone: ${data.get('phone')}\nInterested in: ${data.get('program')}\nMessage: ${data.get('message') || 'Please contact me with more details.'}`
+			);
+			window.open(`https://wa.me/918019102233?text=${message}`, '_blank', 'noopener,noreferrer');
+			});
+		</script>
+	</body>
+</html>
